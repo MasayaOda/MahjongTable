@@ -18,6 +18,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/kyoku"
+        android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,13 +32,15 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
+        android:textColor="@color/black"
         android:text="@string/under"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kyoku"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.3"
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/right"
@@ -50,6 +53,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
+        android:textColor="@color/black"
         android:rotation="-90"
         android:text="TextView"
         android:textSize="36sp"
@@ -57,15 +61,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/kyoku"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="number"/>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/upper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
+        android:textColor="@color/black"
         android:rotation="180"
         android:text="TextView"
         android:textSize="36sp"
@@ -74,10 +80,11 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.7"
+        android:inputType="number"/>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -85,12 +92,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/white"
+        android:textColor="@color/black"
         android:rotation="90"
         android:text="TextView"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/kyoku"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="number"/>
 
 </android.support.constraint.ConstraintLayout>
