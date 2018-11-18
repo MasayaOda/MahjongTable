@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">MahjongTable</string>
-    <string name="kyoku">風何局</string>
+    <string name="kyoku">局</string>
     <string name="under">TextView</string>
 </resources>
