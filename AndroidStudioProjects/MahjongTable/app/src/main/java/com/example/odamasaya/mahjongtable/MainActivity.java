@@ -3,6 +3,7 @@ package com.example.odamasaya.mahjongtable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -10,18 +11,24 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView scoreTexts[] = new TextView[4];
+    TextView kyotaku;
     int[] ids = {R.id.under, R.id.right, R.id.upper, R.id.left};
     int[] scores = {25000, 25000, 25000, 25000};
+    int first = 25000;
+    int kyotakuscore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         int i;
 
 
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        kyotaku = findViewById(R.id.kyotaku);
 
-
+        kyotaku.setText(String.valueOf(kyotakuscore));
         for (i = 0; i < scoreTexts.length; i++) {
             final int finalI = i;
             scoreTexts[i] = findViewById(ids[i]);
@@ -40,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         }
+
+
     }
 
 
@@ -53,4 +62,50 @@ public class MainActivity extends AppCompatActivity {
         scoreTexts[position].setText(String.valueOf(scores[position]));
     }
 
+    public void kyotakuReset(View view) {
+        kyotakuscore = 0;
+        kyotaku.setText(String.valueOf(kyotakuscore));
+    }
+
+    public void onResetButtonClick(View view) {
+        int i;
+        for (i = 0; i < 4; i++) {
+            scores[i] = first;
+            scoreTexts[i].setText(String.valueOf(scores[i]));
+        }
+        kyotakuscore = 0;
+        kyotaku.setText(String.valueOf(kyotakuscore));
+    }
+
+    public void reach(View view) {
+        int id = view.getId();
+
+        switch(id) {
+            case R.id.underreach:
+                scores[0] -= 1000;
+                kyotakuscore += 1000;
+                break;
+
+            case R.id.rightreach:
+                scores[1] -= 1000;
+                kyotakuscore += 1000;
+                break;
+
+            case R.id.upperreach:
+                scores[2] -= 1000;
+                kyotakuscore += 1000;
+                break;
+
+            case R.id.leftreach:
+                scores[3] -= 1000;
+                kyotakuscore += 1000;
+                break;
+        }
+        int i;
+        for (i = 0; i < 4; i++) {
+            scoreTexts[i].setText(String.valueOf(scores[i]));
+        }
+        kyotaku.setText(String.valueOf(kyotakuscore));
+
+    }
 }

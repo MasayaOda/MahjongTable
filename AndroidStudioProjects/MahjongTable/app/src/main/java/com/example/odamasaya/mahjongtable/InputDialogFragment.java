@@ -14,9 +14,9 @@ public class InputDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         // タイトル設定
-        dialogBuilder.setTitle("ダイアログタイトル");
+        dialogBuilder.setTitle("得点計算");
         // 表示する文章設定
-        dialogBuilder.setMessage("元画面に返す値を入力してください");
+        dialogBuilder.setMessage("得点変動を入力してください");
 
         final int position = getArguments().getInt("position");
 
