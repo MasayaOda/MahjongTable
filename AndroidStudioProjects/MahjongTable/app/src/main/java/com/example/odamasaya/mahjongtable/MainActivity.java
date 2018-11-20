@@ -108,4 +108,28 @@ public class MainActivity extends AppCompatActivity {
         kyotaku.setText(String.valueOf(kyotakuscore));
 
     }
+
+    public void ryukyoku(View view) {
+        RyukyokuDialogFragment dialogFragment = new RyukyokuDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(), "RyukyokuDialogFragment");
+    }
+
+    public void ryukyokushori(boolean tempai[]) {
+        int i;
+        int counter = 0;
+        for (i = 0; i < 4; i++) {
+            if (tempai[i]) {
+                counter++;
+            }
+        }
+        if (counter == 0 || counter == 4) return;
+        for (i = 0; i < 4; i++) {
+            if (tempai[i]) {
+                scores[i] += 3000 / counter;
+            } else {
+                scores[i] -= 3000 / (4 - counter);
+            }
+            scoreTexts[i].setText(String.valueOf(scores[i]));
+        }
+    }
 }
