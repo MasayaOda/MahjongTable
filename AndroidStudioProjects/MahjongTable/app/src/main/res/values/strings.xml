@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MahjongTable</string>
-    <string name="kyoku">局</string>
+    <string name="app_name">麻雀卓</string>
+    <string name="kyoku">　</string>
     <string name="textview">点数</string>
     <string name="reset">リセット</string>
     <string name="kyotaku">供託</string>
