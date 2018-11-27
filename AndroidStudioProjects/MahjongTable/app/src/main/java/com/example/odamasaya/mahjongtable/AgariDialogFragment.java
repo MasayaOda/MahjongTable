@@ -40,12 +40,24 @@ public class AgariDialogFragment extends DialogFragment {
 
         final View view = inflater.inflate(R.layout.fragment_dialog_agari, null);
 
-        TextView tvLabelInput = (TextView) view.findViewById(R.id.tvLabelInput);
+
+        final MainActivity forname = (MainActivity) getActivity();
+
+  //      TextView tvLabelInput = (TextView) view.findViewById(R.id.tvLabelInput);
         RadioButton tsumo = (RadioButton) view.findViewById(R.id.tsumo);
         RadioButton kamicha = (RadioButton) view.findViewById(R.id.kamicha);
         RadioButton toimen = (RadioButton) view.findViewById(R.id.toimen);
         RadioButton shimocha = (RadioButton) view.findViewById(R.id.shimocha);
 
+
+
+        final String kamichaname = forname.playername[(position + 3) % 4];
+        final String toimenname = forname.playername[(position + 2) % 4];
+        final String shimochaname = forname.playername[(position + 1) % 4];
+
+        kamicha.setText(kamichaname);
+        toimen.setText(toimenname);
+        shimocha.setText(shimochaname);
 
         final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.radioGroup);
 
@@ -57,6 +69,7 @@ public class AgariDialogFragment extends DialogFragment {
         husuPicker.setDisplayedValues(husulist);
         husuPicker.setMaxValue(husulist.length - 1);
         husuPicker.setMinValue(0);
+        husuPicker.setValue(2);
 
         // タイトル設定
         dialogBuilder.setTitle("得点計算");
@@ -74,37 +87,37 @@ public class AgariDialogFragment extends DialogFragment {
                 // editTextから値を取得
                 // MainActivityのインスタンスを取得
 
-              MainActivity mainActivity = (MainActivity) getActivity();
+
 
                 int checkedId = radioGroup.getCheckedRadioButtonId();
 
-
+                MainActivity mainActivity = (MainActivity) getActivity();
 
                 int hansu = hansuPicker.getValue();
                 int husu = husuPicker.getValue();
                 int type = 0;
                 if (checkedId != -1) {
                     // 選択されているラジオボタンの取得
-                    RadioButton radioButton = (RadioButton) view.findViewById(checkedId);// (Fragmentの場合は「getActivity().findViewById」にする)
+            //        RadioButton radioButton = (RadioButton) view.findViewById(checkedId);// (Fragmentの場合は「getActivity().findViewById」にする)
 
 
                     // ラジオボタンのテキストを取得
-                    String text = radioButton.getText().toString();
+               //     String text = radioButton.getText().toString();
 
-                    switch (text) {
-                        case "ツモ":
+                    switch (checkedId) {
+                        case R.id.tsumo:
                             type = 0;
                             break;
 
-                        case "上家":
+                        case R.id.kamicha:
                             type = 1;
                             break;
 
-                        case "対面":
+                        case R.id.toimen:
                             type = 2;
                             break;
 
-                        case "下家":
+                        case R.id.shimocha:
                             type = 3;
                             break;
                     }
